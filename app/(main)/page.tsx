@@ -1,8 +1,9 @@
+import Firework from "@/components/Firework/Firework";
 
 export default function Home() {
   return (
     <div className="">
-      Hello
+      <Firework />
     </div>
   );
 }

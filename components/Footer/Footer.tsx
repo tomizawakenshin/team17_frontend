@@ -2,9 +2,9 @@ import React from 'react'
 
 const Footer: React.FC = () => {
   return (
-    <div className='footer'>
-      <div className="p-4 bg-gray-800 text-white">フッター</div>
-    </div>
+    <footer className='p-4 bg-gray-800 absolute bottom-0 w-screen'>
+      <div className="text-white">フッター</div>
+    </footer>
   );
 };
 
