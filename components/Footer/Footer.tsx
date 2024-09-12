@@ -5,7 +5,8 @@ import './Footer.css'
 
 const Footer: React.FC = () => {
     return (
-        <footer className='sticky bottom-0 z-10 bg-gray-800 width-[66%]'> 
+
+        <footer className='fixed bottom-0 z-10 bg-gray-800 width-[78%]'> 
                <ul className="grid grid-cols-3">
                 {FooterMenus.map((menu, index) => (
                     <li key={index}>
@@ -19,6 +20,8 @@ const Footer: React.FC = () => {
                 ))}
             </ul>
         </footer>
+
+        
     );
 };
 
