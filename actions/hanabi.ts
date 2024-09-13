@@ -1,10 +1,25 @@
 import { Hanabi } from "@/models/hanabi";
 
-export const getAllHanabi = async (): Promise<Hanabi[]> => {
-    const res = await fetch(`http://localhost:3002/hanabis`, {
-        cache: "no-store", //SSR
-    });
-    const hanabis = res.json();
+export const getAllHanabi = async (date: string): Promise<Hanabi[]> => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        throw new Error("No token found");
+    }
 
+    // フロントエンドでリクエストをスラッシュなしのURLに変更
+    const res = await fetch(`http://localhost:8080/hanabi/getAll?date=${date}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include', // 認証情報を送信
+    });
+
+    if (!res.ok) {
+        throw new Error("Failed to fetch hanabis");
+    }
+
+    const hanabis = await res.json();
     return hanabis;
 };
