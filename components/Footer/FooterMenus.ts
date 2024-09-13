@@ -4,19 +4,19 @@ import { House, Rocket, UserRound } from "lucide-react"; // lucide-reactから�
 export const FooterMenus = [
     {
         // ホーム画面のメニュー
-        link: '',
+        link: '/',
         label: 'ホーム',
         icon: House, // iconは文字列ではなく、クラス？を指定するため具ウォーテーションがいらない
     },
     {
         // 新規作成のメニュー
-        link: '',
+        link: '/',
         label: '花火作成',
         icon: Rocket,
     },
     {
         // プロフィールのメニュー
-        link: '',
+        link: '/',
         label: 'プロフィール',
         icon: UserRound,
     },
