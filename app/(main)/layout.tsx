@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
+// import Header from "@/components/Header/Header";
 
 const MainLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
   return (

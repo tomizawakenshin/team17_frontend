@@ -1,7 +1,9 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
+import { useRouter } from 'next/navigation'; // useRouter フックをインポート
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useEffect } from 'react';
 
 interface IFormInput {
   title: string;
@@ -14,6 +16,16 @@ const NewFireworkForm = () => {
   const [fileName, setFileName] = useState<string>("");
   const [imageData, setImageData] = useState<string>("");
   const [selectedTag, setSelectedTag] = useState<string>('music');
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const router = useRouter(); // useRouterフックの初期化
+
+  useEffect(() => {
+    // トークンが存在しない場合にログイン画面に遷移
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push('/login'); // トークンがない場合はログインページにリダイレクト
+    }
+  }, [router]);
 
   
 
@@ -27,7 +39,7 @@ const NewFireworkForm = () => {
       const file = files[0];
       setFileName(file.name);
       const reader = new FileReader();
-      reader.onload = (e) => setImageData(e.target.result as string);
+      reader.onload = (e) => setImageData(e.target?.result as string);
       reader.readAsDataURL(file);
     }
   };
@@ -38,13 +50,48 @@ const NewFireworkForm = () => {
     reset({ file: undefined });
   };
 
-  const onSubmit = (data: IFormInput) => {
-    console.log(data);
+  const onSubmit = async (data: IFormInput) => {
+    const token = localStorage.getItem("token"); // localStorageからJWTトークンを取得
+    if (!token) {
+      setErrorMessage("認証トークンがありません。ログインしてください。");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", data.title);
+    formData.append("description", data.description);
+    formData.append("file", data.file[0]); // 画像ファイルを追加
+    formData.append("tag", selectedTag);
+
+    try {
+      const response = await fetch("http://localhost:8080/hanabi/create", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${token}`, // AuthorizationヘッダーにJWTトークンを設定
+        },
+        body: formData, // マルチパート形式でデータを送信
+      });
+
+      if (!response.ok) {
+        throw new Error("花火の作成に失敗しました。");
+      }
+
+      const result = await response.json();
+      console.log("花火の作成成功:", result);
+      reset(); // フォームのリセット
+      clearFile(); // ファイルのクリア
+
+    } catch (error) {
+      setErrorMessage("花火の作成に失敗しました。");
+      console.error(error);
+    }
   };
 
   return (
     <div className="container mx-auto px-2 pt-2 flex items-center">
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
+        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+
         <div className='mb-4'>
           <label htmlFor="title" className="block text-sm font-medium">イベント名</label>
           <input type="text" {...register("title", { required: "イベント名は必須です" })} className="mt-1 p-1 w-full border rounded text-black" />
@@ -70,20 +117,20 @@ const NewFireworkForm = () => {
             </div>
           )}
         </div>
+
         <label>
-        Pick a tag:
-        <select
+          Pick a tag:
+          <select
             name="selectedTag"
             style={{ color: 'black', backgroundColor: 'white' }}
             value={selectedTag}
             onChange={handleChange}
-        >
+          >
             <option value="music">music</option>
             <option value="movie">movie</option>
             <option value="other">other</option>
-        </select>
+          </select>
         </label>
-
 
         <button type="submit" className="mt-8 w-full bg-yellow-200 hover:bg-yellow-100 text-gray-800 font-bold py-2 px-4 rounded">花火を打ち上げる</button>
       </form>
