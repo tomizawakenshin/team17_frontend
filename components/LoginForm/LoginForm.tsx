@@ -52,7 +52,7 @@ const LoginForm = () => {
             localStorage.setItem('token', data.token);
             setSuccessMessage('ログイン成功しました！');
 
-            router.push('/new');
+            router.push('/home1');
         } catch (error) {
             console.error('ログインエラー:', error);
             setErrorMessage('ログインに失敗しました。もう一度お試しください。');
