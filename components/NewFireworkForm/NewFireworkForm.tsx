@@ -15,6 +15,8 @@ const NewFireworkForm = () => {
   const [imageData, setImageData] = useState<string>("");
   const [selectedTag, setSelectedTag] = useState<string>('music');
 
+  
+
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedTag(event.target.value);
   };
