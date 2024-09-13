@@ -91,7 +91,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
               />
             ))}
           </div>
-          <Link href={`/comment/${encodeURIComponent(item.Name)}`}>
+          <Link href={`/comment/${encodeURIComponent(item.ID)}`}>
             {item.CommentCount >= 1 && (
               <div
                 style={{

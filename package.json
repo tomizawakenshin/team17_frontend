@@ -10,8 +10,12 @@
     "json-server": "json-server --watch public/All.json --port 3002"
   },
   "dependencies": {
+    "@nextui-org/avatar": "^2.0.32",
+    "@nextui-org/system": "^2.2.5",
+    "@nextui-org/theme": "^2.2.9",
     "@types/styled-components": "^5.1.34",
     "classnames": "^2.5.1",
+    "framer-motion": "^11.5.4",
     "json-server": "^1.0.0-beta.2",
     "lucide-react": "^0.439.0",
     "next": "^14.2.8",

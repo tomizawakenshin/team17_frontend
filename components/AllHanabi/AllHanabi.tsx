@@ -48,7 +48,7 @@ const AllHanabi = ({ hanabis }: HanabiProps) => {
 
       <div className='mb-14'>
         {getFilteredEvents().map(event => (
-          <Link href={`/comment/${(event.Name)}`} key={event.ID}>
+          <Link href={`/comment/${(event.ID)}`} key={event.ID}>
             <div key={event.Name} className="flex items-center  py-4 border-t border-b border-gray-500">
               <img src={event.Photo} alt={event.Name} className="w-32 h-32 object-cover mr-4" />
               <div className="mx-10">
