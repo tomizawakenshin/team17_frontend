@@ -1,57 +1,57 @@
 .firework-container {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: center;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
   .center-dot {
-    width: 10px;   /* 点のサイズ */
-    height: 10px;  /* 点のサイズ */
-    background-color: rgb(255, 181, 181);
-    border-radius: 50%; /* 円形にする */
+    width: 10px;  
+    height: 10px;
+    border-radius: 50%;
     position: absolute;
-    top: 50%; /* コンテナの中央 */
-    left: 50%; /* コンテナの中央 */
-    transform: translate(50%, 150%); /* 中心に正確に配置 */
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 150%);
+    filter: brightness(2.5) !important;
 }
 
   .dot1 {
-    --size: 20px; /* アイコンのサイズを調整 */
-    --rotate: calc(var(--n) * 360deg / 6); /* 360度をアイコンの数で割る */
+    --size: 20px;
+    --rotate: calc(var(--n) * 360deg / 6);
     position: absolute;
     width: var(--size);
     height: var(--size);
     font-size: var(--size);
-    transform-origin: center bottom; /* アイコンの回転軸を調整 */
+    transform-origin: center bottom;
     transform: rotate(var(--rotate)) translate(30px) rotate(-90deg);
-    color: rgb(255, 181, 181);
+    filter: brightness(2.5) !important;
   }
 
   .dot2 {
-    --size: 20px; /* アイコンのサイズを調整 */
-    --rotate: calc(var(--n) * 360deg / 12); /* 360度をアイコンの数で割る */
+    --size: 20px;
+    --rotate: calc(var(--n) * 360deg / 12);
     position: absolute;
     width: var(--size);
     height: var(--size);
-    color: rgb(248, 66, 66); /* アイコンの色 */
     font-size: var(--size);
-    transform-origin: center bottom; /* アイコンの回転軸を調整 */
+    transform-origin: center bottom;
     transform: rotate(var(--rotate)) translate(60px) rotate(-90deg);
+    filter: brightness(1.7) !important;
   }
   
   .dot3 {
-    --size: 20px; /* アイコンのサイズを調整 */
-    --rotate: calc(var(--n) * 360deg / 24); /* 360度をアイコンの数で割る */
+    --size: 20px;
+    --rotate: calc(var(--n) * 360deg / 24);
     position: absolute;
     width: var(--size);
     height: var(--size);
-    color: red; /* アイコンの色 */
     font-size: var(--size);
-    transform-origin: center bottom; /* アイコンの回転軸を調整 */
+    transform-origin: center bottom;
     transform: rotate(var(--rotate)) translate(100px) rotate(-90deg);
+    filter: brightness(1) !important;
   }
   
   

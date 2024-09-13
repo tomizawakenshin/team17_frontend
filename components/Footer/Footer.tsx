@@ -6,6 +6,7 @@ import Link from 'next/link'
 import './Footer.css'
 
 const Footer: React.FC = () => {
+
     return (
 
         <footer className='fixed bottom-0 z-50 bg-gray-800 width-[78%]'> 
