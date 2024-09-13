@@ -1,6 +1,7 @@
 import { User } from "./user";
 
-export interface Hanabi{
+export interface Hanabi {
+  ID: number;
   Name: string;
   Discription: string;
   Photo: string;

@@ -12,7 +12,7 @@ const Home2 = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await getAllHanabi();
+        const result = await getAllHanabi("2024-09-13");
         setData(result);
       } catch (error) {
         setError('データの取得に失敗しました');
