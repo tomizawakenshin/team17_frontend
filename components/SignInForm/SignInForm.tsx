@@ -1,8 +1,10 @@
 "use client"
 
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 
 const SignInFrom = () => {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -34,6 +36,8 @@ const SignInFrom = () => {
 
             const data = await response.json();
             console.log('サインアップ成功:', data);
+
+            router.push('/login')
         } catch (error) {
             console.error('サインアップエラー:', error);
         }
