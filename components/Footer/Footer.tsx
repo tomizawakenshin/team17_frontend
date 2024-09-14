@@ -9,17 +9,27 @@ import './Footer.css'
 
 const Footer: React.FC = () => {
      // スタイルの初期状態を宣言
-    const [selected, setSelected] = useState<boolean>(false);
+    const [selected, setSelected] = useState<number>(0); // 最初にホーム画面のアイコンの塗りを有効にしておく
+
+    // クリックイベントハンドラ
+    const handleClick = (index: number) => {
+        setSelected(index);
+    }
 
     return (
         <footer className='sticky bottom-0 z-10 bg-gray-800'> 
                <ul className="grid grid-cols-3">
                 {FooterMenus.map((menu, index) => (
-                    <li key={index}>
+                    <li key={index}> 
                         <Link href={menu.link} className="flex flex-col items-center justify-center gap-1 py-1.5 text-xs">
                         {/* フッターメニューのアイコンを表示する */}
                         <div >
-                            <menu.icon className="iconImqge" size={24} onClick={() => setSelected(!selected)} stroke="white" fill={ selected ? "white" : "none" } />
+                            <menu.icon className="iconImqge" 
+                                size={24}
+                                onClick={() => handleClick(index)} stroke="white"
+                                style={{
+                                    fill: selected === index ? "white" : "none",
+                                }} />
                         </div>
                         
                         {/* フッターメニューのラベルを表示する(非表示) */}
