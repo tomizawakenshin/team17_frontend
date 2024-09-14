@@ -1,8 +1,21 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
+import { RefreshCcw } from 'lucide-react';
+
+
 
 const Header = () => {
   return (
-    <div className="p-4 bg-gray-800 text-white fixed;">ヘッダー</div>
+    <header className="h-14 bg-black text-white flex items-center space-x-2 px-2 w-full shadow-md s justify-between p-10 fixed" >
+      <h1 className="p-2 font-bold text-2xl">
+        <Link href="/">Hanabi</Link>
+      </h1>
+      <div className="p-2 bg-gray-800 rounded-xl">
+        <Link href="/home2">
+          <RefreshCcw stroke="white" />
+        </Link>
+      </div>
+    </header>
   )
 }
 
