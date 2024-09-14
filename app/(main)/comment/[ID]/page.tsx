@@ -206,14 +206,14 @@ const EventPage = () => {
   }
 
   return (
-    <div>
+    <div className='mt-10'>
       <div className="container mx-auto px-4 py-4 flex items-center">
-        <img src={eventData.Photo} alt="Event" className="w-32 h-32 mx-6 mr-4" />
+        <img src={eventData.Photo} alt="Event" className="w-32 h-32 mx-6" />
         <div className="mx-10">
           <h1 className="text-xl font-bold">{eventData.Name}</h1>
           <div
             className={classNames(
-              'mt-1 text-center text-white rounded-full shadow-sm',
+              'mt-3 text-center text-white rounded-full shadow-sm',
               {
                 'bg-red-500': eventData.Tag === 'music',
                 'bg-blue-500': eventData.Tag === 'movie',
@@ -227,13 +227,13 @@ const EventPage = () => {
           >
             {eventData.Tag}
           </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }} className="mt-3" >
             <BsFire className="text-white mx-5" />
             <p>{eventData.CommentCount}</p>
           </div>
         </div>
       </div>
-      <p className="mx-10">説明:</p>
+      <p className="mx-10 text-sm text-gray-300">説明:</p>
       <p className="mx-10">{eventData.Description}</p>
       <div className="mb-14 my-10">
         {eventData.Comments && eventData.Comments.map((comment, index) => (
@@ -241,16 +241,16 @@ const EventPage = () => {
             <img
               src={comment.User?.IconPhoto ?? "/default-icon.png"}
               alt={`${comment.User?.Username || "Anonymous"}'s icon`}
-              className="w-12 h-12 rounded-full mr-4"
+              className="w-12 h-12 rounded-full mx-4"
             /> {/* IconPhotoを表示 */}
-            <div className="flex-grow">
-              <p className="font-bold">{comment.User?.Username || "Anonymous"}</p>
-              <p>{comment.Content}</p>
+            <div className="flex-grow flex-wrap">
+              <p className="font-bold pr-30">{comment.User?.Username || "Anonymous"}</p>
+              <p className='text-sm'>{comment.Content}</p>
             </div>
             <div className="flex items-center">
               <button
                 onClick={() => toggleLike(comment.ID, comment.HasLiked)}
-                className={`ml-4 ${comment.HasLiked ? 'text-red-500' : 'text-gray-500'}`}
+                className={`mx-4 ${comment.HasLiked ? 'text-red-500' : 'text-gray-500'}`}
               >
                 ❤️ {comment.LikeCount}
               </button>
@@ -264,7 +264,7 @@ const EventPage = () => {
             value={newComment}
             onChange={(e) => setNewComment(e.target.value)}  // 入力フィールドの更新
             onKeyPress={handleKeyPress}  // Enterキーでコメントを送信
-            className="flex-grow bg-gray-200 border border-gray-500 text-gray-900 dark:text-gray-400 placeholder-gray-700 dark:placeholder-gray-500 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500"
+            className="mx-4 flex-grow bg-gray-200 border border-gray-500 text-gray-900 dark:text-gray-400 placeholder-gray-700 dark:placeholder-gray-500 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block p-2.5 dark:bg-gray-700 dark:border-gray-500"
             placeholder="感想を書く"
             disabled={sending}  // 送信中は入力を無効化
           />
