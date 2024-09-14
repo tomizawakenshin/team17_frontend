@@ -5,5 +5,5 @@ export interface Like{
     UserId: number;
     User: User;
     CommentID: number;
-    Comments: Comment[];
+    Comment: Comment;
   }
