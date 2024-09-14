@@ -29,7 +29,7 @@ const getColor = (category: string) => {
 
 const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
   return (
-    <div className="firework-container">
+    <div className="firework-container mt-10">
       {hanabis.map((item, itemIndex) => (
         <div
           key={item.Name}
@@ -39,7 +39,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
           <div
             style={{
               position: "absolute",
-              top: `${itemIndex * 150}px`,
+              top: `${itemIndex * 300}px`,
               left: "0",
               zIndex: 1,
             }}
@@ -96,7 +96,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
               <div
                 style={{
                   position: "absolute",
-                  top: `${itemIndex * 150}px`,
+                  top: `${itemIndex * 300}px`,
                   left: "0",
                   zIndex: 1,
                 }}
@@ -121,11 +121,11 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
                 ))}
               </div>
             )}
-            {item.CommentCount >= 7 && (
+            {item.CommentCount >= 2 && (
               <div
                 style={{
                   position: "absolute",
-                  top: `${itemIndex * 150}px`,
+                  top: `${itemIndex * 300}px`,
                   left: "0",
                   zIndex: 2,
                 }}
@@ -146,11 +146,11 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
                 ))}
               </div>
             )}
-            {item.CommentCount >= 13 && (
+            {item.CommentCount >= 3 && (
               <div
                 style={{
                   position: "absolute",
-                  top: `${itemIndex * 150}px`,
+                  top: `${itemIndex * 300}px`,
                   left: "0",
                   zIndex: 3,
                 }}
@@ -165,6 +165,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
                         position: "absolute",
                         color: getColor(item.Tag),
                         opacity: 1,
+                        
                       } as React.CSSProperties
                     }
                   />

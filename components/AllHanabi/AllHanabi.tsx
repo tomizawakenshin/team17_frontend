@@ -3,6 +3,7 @@
 import { Hanabi } from '@/models/hanabi';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'; 
+import { BsFire } from "react-icons/bs";
 
 interface HanabiProps {
   hanabis: Hanabi[];
@@ -56,7 +57,10 @@ const AllHanabi = ({ hanabis }: HanabiProps) => {
               <p className={`mt-1 text-center text-white rounded-full shadow-sm bg-${getColor(event.Tag)}-500`}>
                 {event.Tag}
               </p>
-              <p className="text-gray-500">Comments: {event.CommentCount}</p>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+            <BsFire className="text-white mx-5" />
+            <p>{event.CommentCount}</p>
+          </div>
             </div>
           </div>
         </Link>
