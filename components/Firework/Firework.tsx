@@ -32,7 +32,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
     <div className="firework-container">
       {hanabis.map((item, itemIndex) => (
         <div
-          key={item.Name}
+          key={item.ID}
           className="firework-item"
           style={{ position: "relative", marginBottom: "4rem" }}
         >

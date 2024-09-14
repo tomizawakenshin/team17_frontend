@@ -7,7 +7,7 @@ export const getAllHanabi = async (date: string): Promise<Hanabi[]> => {
     }
 
     // フロントエンドでリクエストをスラッシュなしのURLに変更
-    const res = await fetch(`http://localhost:8080/hanabi/getAll?date=${date}`, {
+    const res = await fetch(`https://hanabibackenddeploy-production.up.railway.app/hanabi/getAll?date=${date}`, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`,

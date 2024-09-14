@@ -27,7 +27,7 @@ const NewFireworkForm = () => {
     }
   }, [router]);
 
-  
+
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedTag(event.target.value);
@@ -64,7 +64,7 @@ const NewFireworkForm = () => {
     formData.append("tag", selectedTag);
 
     try {
-      const response = await fetch("http://localhost:8080/hanabi/create", {
+      const response = await fetch("https://hanabibackenddeploy-production.up.railway.app/hanabi/create", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`, // AuthorizationヘッダーにJWTトークンを設定

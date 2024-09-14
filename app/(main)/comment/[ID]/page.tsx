@@ -61,7 +61,7 @@ const EventPage = () => {
           const decodedID = Array.isArray(ID) ? ID[0] : ID; // 配列の場合、最初の要素を取得
 
           try {
-            const response = await fetch(`http://localhost:8080/hanabi/getByID/${decodedID}`, {
+            const response = await fetch(`https://hanabibackenddeploy-production.up.railway.app/hanabi/getByID/${decodedID}`, {
               method: 'GET',
               headers: {
                 'Authorization': `Bearer ${token}`,  // Authorizationヘッダーにトークンを追加
@@ -105,7 +105,7 @@ const EventPage = () => {
     setSending(true);  // 送信中に設定
 
     try {
-      const response = await fetch(`http://localhost:8080/comment/create/${ID}`, {
+      const response = await fetch(`https://hanabibackenddeploy-production.up.railway.app/comment/create/${ID}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -157,7 +157,7 @@ const EventPage = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/like/${hasLiked ? 'unlike' : 'like'}/${commentID}`,
+        `https://hanabibackenddeploy-production.up.railway.app/like/${hasLiked ? 'unlike' : 'like'}/${commentID}`,
         {
           method: hasLiked ? 'DELETE' : 'POST', // いいね済みならDELETE、いいねしてなければPOST
           headers: {

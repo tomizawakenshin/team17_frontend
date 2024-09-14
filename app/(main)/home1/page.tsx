@@ -19,7 +19,7 @@ export default function Home() {
       // Tokenがある場合にhanabiデータを取得
       const fetchData = async () => {
         try {
-          const data = await getAllHanabi("2024-09-13");
+          const data = await getAllHanabi("2024-09-14");
           setHanabis(data);
         } catch (error) {
           console.error("Failed to fetch hanabis", error);
