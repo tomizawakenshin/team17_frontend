@@ -98,23 +98,23 @@ const NewFireworkForm = () => {
   };
 
   return (
-    <div>
+    <div >
       <div className="container mx-auto px-5 pt-2 flex items-center">
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
-          <div className='mb-4'>
-            <label htmlFor="title" className="block text-sm font-medium">イベント名</label>
+          <div className='mb-6 mt-8'>
+            <label htmlFor="title" className="block text-sm font-medium mb-1">イベント名</label>
             <input type="text" {...register("title", { required: "イベント名は必須です" })} className="mt-1 p-1 w-full border rounded text-black" />
             {errors.title && <span className="text-red-500">{errors.title.message}</span>}
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-medium">イベント詳細</label>
+          <div className="mb-6">
+            <label htmlFor="description" className="block text-sm font-medium mb-1">イベント詳細</label>
             <input type="text" {...register("description", { required: "イベント詳細は必須です" })} className="mt-1 p-1 w-full border rounded text-black" />
             {errors.description && <span className="text-red-500">{errors.description.message}</span>}
           </div>
 
-          <div className="mb-4">
-            <label htmlFor="file" className="block text-sm font-medium">イベント画像</label>
+          <div className="mb-6">
+            <label htmlFor="file" className="block text-sm font-medium mb-1">イベント画像</label>
             <input type="file" {...register("file", {
               required: "ファイルを選択してください",
               onChange: onFileChange
@@ -128,8 +128,8 @@ const NewFireworkForm = () => {
           </div>
         </form>
       </div>
-      <div className="max-w-4xl mx-auto px-5">
-        <label htmlFor="tag" className="block text-sm font-medium">タグを選択</label>
+      <div className="max-w-4xl mx-auto px-10">
+        <label htmlFor="tag" className="block text-sm font-medium mb-2">タグを選択</label>
         <div className="flex space-x-2">
           <div className="flex overflow-x-auto space-x-4 no-scrollbar">
             {['music', 'movie', 'comedy', 'art', 'hackathon', 'other'].map(category => (
@@ -151,7 +151,7 @@ const NewFireworkForm = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center mt-8">
+      <div className="flex justify-center items-center mt-16">
         <button type="submit" className="w-80 bg-yellow-200 hover:bg-yellow-100 text-gray-800 font-bold py-2 px-4 rounded">
           花火を打ち上げる
         </button>
