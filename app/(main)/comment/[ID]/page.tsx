@@ -26,17 +26,17 @@ interface EventData {
   Comments: CommentData[];
 }
 
-const getColor = (category: string) => {
-  switch (category) {
-    case 'music': return 'red';
-    case 'movie': return 'blue';
-    case 'comedy': return 'purple';
-    case 'art': return 'yellow';
-    case 'hackathon': return 'green';
-    case 'other': return 'orange';
-    default: return 'gray';
-  }
-};
+// const getColor = (category: string) => {
+//   switch (category) {
+//     case 'music': return 'red';
+//     case 'movie': return 'blue';
+//     case 'comedy': return 'purple';
+//     case 'art': return 'yellow';
+//     case 'hackathon': return 'green';
+//     case 'other': return 'orange';
+//     default: return 'gray';
+//   }
+// };
 
 const EventPage = () => {
   const router = useRouter();  // useRouter を使用
@@ -51,10 +51,7 @@ const EventPage = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');  // ローカルストレージからJWTトークンを取得
 
-    if (!token) {
-      // トークンがない場合、ログインページにリダイレクト
-      router.push("/login");
-    } else {
+  
       // イベントデータを取得する関数
       const fetchEventData = async () => {
         if (ID) {
@@ -94,7 +91,52 @@ const EventPage = () => {
 
       fetchEventData();
     }
-  }, [ID, router]);  // ID と router を依存配列に含める
+  , [ID, router]);  // ID と router を依存配列に含める
+
+  //   if (!token) {
+  //     // トークンがない場合、ログインページにリダイレクト
+  //     router.push("/login");
+  //   } else {
+  //     // イベントデータを取得する関数
+  //     const fetchEventData = async () => {
+  //       if (ID) {
+  //         const decodedID = Array.isArray(ID) ? ID[0] : ID; // 配列の場合、最初の要素を取得
+
+  //         try {
+  //           const response = await fetch(`http://localhost:8080/hanabi/getByID/${decodedID}`, {
+  //             method: 'GET',
+  //             headers: {
+  //               'Authorization': `Bearer ${token}`,  // Authorizationヘッダーにトークンを追加
+  //               'Content-Type': 'application/json',
+  //             },
+  //             cache: 'no-store',
+  //           });
+
+  //           if (!response.ok) {
+  //             throw new Error('イベントデータの取得に失敗しました');
+  //           }
+
+  //           const result = await response.json();
+  //           const hanabiData = result["founded hanabi"];
+
+  //           if (!hanabiData) {
+  //             throw new Error('イベントデータが見つかりませんでした');
+  //           }
+
+  //           // 取得したデータをステートに保存
+  //           setEventData(hanabiData);
+  //         } catch (err) {
+  //           console.error('Error fetching event data:', err);
+  //           setError('イベントデータの取得に失敗しました');
+  //         } finally {
+  //           setLoading(false);
+  //         }
+  //       }
+  //     };
+
+  //     fetchEventData();
+  //   }
+  // }, [ID, router]);  // ID と router を依存配列に含める
 
   // コメントを送信する関数
   const handleSubmitComment = async () => {
