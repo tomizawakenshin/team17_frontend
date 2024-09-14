@@ -1,27 +1,187 @@
-{
-    "Name": "event1",
-    "Discription": "eventdis",
-    "Photo": "/5C3E2B68-4F36-472C-8235-C5ACDADE6BDB.jpeg",
-    "UserId": 1,
-    "User": "user1",
-    "Tag": "music",
-    "CommentCount": 16,
-    "Comment": [
-        "楽しい",
-        "嬉しい",
-        "面白い",
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "m"
-    ]
+{"hanabis":[
+    {
+      "Name": "Summer Fireworks",
+      "Discription": "A grand display of summer fireworks by the river.",
+      "Photo": "/images/hanabi1.jpg",
+      "UserID": 1,
+      "User": {
+        "Username": "fireworks_lover",
+        "Email": "fireworkslover@example.com",
+        "Password": "password123",
+        "IconPhoto": "/images/icon1.jpg",
+        "Hanabis": [],
+        "Comments": [],
+        "Likes": []
+      },
+      "Tag": "art",
+      "CommentCount": 2,
+      "Comment": [
+        {
+          "Content": "Beautiful fireworks!",
+          "UserID": 2,
+          "User": {
+            "Username": "john_doe",
+            "Email": "johndoe@example.com",
+            "Password": "password456",
+            "IconPhoto": "/images/icon2.jpg",
+            "Hanabis": [],
+            "Comments": [],
+            "Likes": []
+          },
+          "HanabiID": 1,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        },
+        {
+          "Content": "Great view, enjoyed it a lot!",
+          "UserID": 3,
+          "User": {
+            "Username": "jane_smith",
+            "Email": "janesmith@example.com",
+            "Password": "password789",
+            "IconPhoto": "/images/icon3.jpg",
+            "Hanabis": [],
+            "Comments": [],
+            "Likes": []
+          },
+          "HanabiID": 1,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        }
+      ]
+    },
+    {
+      "Name": "Music Festival Fireworks",
+      "Discription": "Fireworks at the end of the music festival.",
+      "Photo": "/images/hanabi2.jpg",
+      "UserID": 2,
+      "User": {
+        "Username": "john_doe",
+        "Email": "johndoe@example.com",
+        "Password": "password456",
+        "IconPhoto": "/images/icon2.jpg",
+        "Hanabis": [],
+        "Comments": [],
+        "Likes": []
+      },
+      "Tag": "music",
+      "CommentCount": 1,
+      "Comment": [
+        {
+          "Content": "Amazing show!",
+          "UserID": 3,
+          "User": {
+            "Username": "jane_smith",
+            "Email": "janesmith@example.com",
+            "Password": "password789",
+            "IconPhoto": "/images/icon3.jpg",
+            "Hanabis": [],
+            "Comments": [],
+            "Likes": []
+          },
+          "HanabiID": 2,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        }
+      ]
+    },
+    {
+      "Name": "Comedy Night Fireworks",
+      "Discription": "Fireworks after the comedy night event.",
+      "Photo": "/images/hanabi3.jpg",
+      "UserID": 3,
+      "User": {
+        "Username": "jane_smith",
+        "Email": "janesmith@example.com",
+        "Password": "password789",
+        "IconPhoto": "/images/icon3.jpg",
+        "Hanabis": [],
+        "Comments": [],
+        "Likes": []
+      },
+      "Tag": "comedy",
+      "CommentCount": 0,
+      "Comment": []
+    },
+    {
+      "Name": "Hackathon Fireworks",
+      "Discription": "Celebration fireworks after the hackathon winners are announced.",
+      "Photo": "/images/hanabi4.jpg",
+      "UserID": 1,
+      "User": {
+        "Username": "fireworks_lover",
+        "Email": "fireworkslover@example.com",
+        "Password": "password123",
+        "IconPhoto": "/images/icon1.jpg",
+        "Hanabis": [],
+        "Comments": [],
+        "Likes": []
+      },
+      "Tag": "hackathon",
+      "CommentCount": 3,
+      "Comment": [
+        {
+          "Content": "Great way to end the event!",
+          "UserID": 2,
+          "User": {
+            "Username": "john_doe",
+            "Email": "johndoe@example.com",
+            "Password": "password456",
+            "IconPhoto": "/images/icon2.jpg",
+            "Hanabis": [],
+            "Comments": [],
+            "Likes": []
+          },
+          "HanabiID": 4,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        },
+        {
+          "Content": "Really inspiring!",
+          "UserID": 3,
+          "User": {
+            "Username": "jane_smith",
+            "Email": "janesmith@example.com",
+            "Password": "password789",
+            "IconPhoto": "/images/icon3.jpg",
+            "Hanabis": [],
+            "Comments": [],
+            "Likes": []
+          },
+          "HanabiID": 4,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        },
+        {
+          "Content": "I loved the fireworks!",
+          "UserID": 1,
+          "User": {
+            "Username": "fireworks_lover",
+            "Email": "fireworkslover@example.com",
+            "Password": "password123",
+            "IconPhoto": "/images/icon1.jpg",
+            "Hanabis": [],
+            "Comments": [],
+            "Likes": []
+          },
+          "HanabiID": 4,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        }
+      ]
+    }
+  ]
 }
+  

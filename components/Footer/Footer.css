@@ -1,14 +1,14 @@
 footer {
     background-color:  rgb(31, 45, 55);
-    min-width: 66%;
+    min-width: 74%;
 
 
-    padding: 1% 8%;
-    margin: 27px;
+    padding: 4% 8%;
+    margin: 54px;
     
 
-    bottom: 0;
-    position: fixed;
+    bottom: -20;
+    position: sticky;
 
     border-radius: 100px;
 }
