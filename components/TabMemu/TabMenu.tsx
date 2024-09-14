@@ -7,16 +7,17 @@ const TabMenu = () => {
     const titles = ['9/1', '9/2', '9/3'];
 
     //タブのクリック状態をuseStateで管理
-    const [clickedTab, setclickedTab] = useState<number | null>(null);
+    const [clickedTab, setClickedTab] = useState<number | null>(null);
 
     // クリックイベントハンドラ
     const handleClick = (index: number) => {
-        setclickedTab(index);
+        setClickedTab(index);
     }
 
 
     return (
         <div className="flex justify-between w-11/12 mx-auto p-2 mt-4 gap-x-3">
+            {/* titles配列から要素を取得し、map関数を使ってボタン要素を作成 */}
             {titles.map((title, index) => (
             <button 
                 key={index}
