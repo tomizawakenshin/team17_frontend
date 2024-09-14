@@ -27,10 +27,7 @@ const getColor = (category: string) => {
 
 const NewFireworkForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
-  const [fileName, setFileName] = useState<string>("");
   const [imageData, setImageData] = useState<string>("");
-  const [selectedTag, setSelectedTag] = useState<string>('music');
-  const [errorMessage, setErrorMessage] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const router = useRouter(); // useRouterフックの初期化
 
@@ -42,12 +39,10 @@ const NewFireworkForm = () => {
     }
   }, [router]);
 
-
   const onFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files && files.length > 0) {
       const file = files[0];
-      setFileName(file.name);
       const reader = new FileReader();
       reader.onload = (e) => setImageData(e.target?.result as string);
       reader.readAsDataURL(file);
@@ -55,7 +50,6 @@ const NewFireworkForm = () => {
   };
 
   const clearFile = () => {
-    setFileName("");
     setImageData("");
     reset({ file: undefined });
   };
@@ -63,7 +57,6 @@ const NewFireworkForm = () => {
   const onSubmit = async (data: IFormInput) => {
     const token = localStorage.getItem("token"); // localStorageからJWTトークンを取得
     if (!token) {
-      setErrorMessage("認証トークンがありません。ログインしてください。");
       return;
     }
 
@@ -71,7 +64,7 @@ const NewFireworkForm = () => {
     formData.append("name", data.title);
     formData.append("description", data.description);
     formData.append("file", data.file[0]); // 画像ファイルを追加
-    formData.append("tag", selectedTag);
+    formData.append("tag", selectedCategory);
 
     try {
       const response = await fetch("https://hanabibackenddeploy-production.up.railway.app/hanabi/create", {
@@ -88,17 +81,20 @@ const NewFireworkForm = () => {
 
       const result = await response.json();
       console.log("花火の作成成功:", result);
+
+      console.log("hello")
+
+      router.push("/home1")
       reset(); // フォームのリセット
       clearFile(); // ファイルのクリア
 
     } catch (error) {
-      setErrorMessage("花火の作成に失敗しました。");
       console.error(error);
     }
   };
 
   return (
-    <div >
+    <div>
       <div className="container mx-auto px-5 pt-2 flex items-center">
         <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
           <div className='mb-6 mt-8'>
@@ -115,19 +111,35 @@ const NewFireworkForm = () => {
 
           <div className="mb-6">
             <label htmlFor="file" className="block text-sm font-medium mb-1">イベント画像</label>
-            <input type="file" {...register("file", {
-              required: "ファイルを選択してください",
-              onChange: onFileChange
-            })} accept="image/*" className="mt-1 p-1 w-full border rounded" />
+
+            {/* 隠されたファイル入力要素 */}
+            <input
+              type="file"
+              id="file"
+              {...register("file", {
+                required: "ファイルを選択してください",
+                onChange: onFileChange,
+              })}
+              accept="image/*"
+              className="hidden"  // ここでinputを隠します
+            />
+
+            {/* カスタムボタン */}
+            <label htmlFor="file" className="cursor-pointer inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+              コンピューターから選択
+            </label>
+
             {imageData && (
               <div className="mt-2">
                 <img src={imageData} alt="Preview" className="w-32 h-32 object-cover" />
                 <button type="button" onClick={clearFile} className="mt-2 text-red-500">画像を削除</button>
               </div>
             )}
+            {errors.file && <span className="text-red-500">{errors.file.message}</span>}
           </div>
         </form>
       </div>
+
       <div className="max-w-4xl mx-auto px-10">
         <label htmlFor="tag" className="block text-sm font-medium mb-2">タグを選択</label>
         <div className="flex space-x-2">
@@ -151,11 +163,13 @@ const NewFireworkForm = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center mt-16">
-        <button type="submit" className="w-80 bg-yellow-200 hover:bg-yellow-100 text-gray-800 font-bold py-2 px-4 rounded">
-          花火を打ち上げる
-        </button>
-      </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="max-w-md w-full"> {/* handleSubmitを使用 */}
+        <div className="flex justify-center items-center mt-16">
+          <button type="submit" className="w-80 bg-yellow-200 hover:bg-yellow-100 text-gray-800 font-bold py-2 px-4 rounded">
+            花火を打ち上げる
+          </button>
+        </div>
+      </form>
     </div>
   );
 };
