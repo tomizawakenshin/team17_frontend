@@ -77,7 +77,7 @@ const LoginForm = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="block mt-2 py-3 px-2 w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 text-black"
+                        className="block mt-2 py-1.5 px-2 w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 text-black"
                     />
                 </div>
                 <div>
@@ -91,14 +91,14 @@ const LoginForm = () => {
                         onChange={handleChange}
                         required
                         minLength={8}
-                        className='block mt-2 mb-8 py-3 px-2 w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 text-black'
+                        className='block mt-2 mb-8 py-1.5 px-2 w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 text-black'
                     />
                 </div>
                 {errorMessage && <p className="mt-2 text-red-600">{errorMessage}</p>}
                 {successMessage && <p className="mt-2 text-green-600">{successMessage}</p>}
                 <button
                     type="submit"
-                    className='mt-10 py-3 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'
+                    className='mt-10 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'
                 >
                     Log In
                 </button>
@@ -112,7 +112,7 @@ const LoginForm = () => {
 
             <button
                 onClick={handleSignUp}
-                className='mt-10 py-3 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm p-4'>
+                className='mt-10 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm p-4'>
                 SignUp
             </button>
         </div>
