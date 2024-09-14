@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation'; // useRouter を使用
 import classNames from 'classnames';
+import { BsFire } from "react-icons/bs";
 
 interface CommentData {
   ID: number;
@@ -226,7 +227,10 @@ const EventPage = () => {
           >
             {eventData.Tag}
           </div>
-          <p>Comments: {eventData.CommentCount}</p>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <BsFire className="text-white mx-5" />
+            <p>{eventData.CommentCount}</p>
+          </div>
         </div>
       </div>
       <p className="mx-10">説明:</p>
