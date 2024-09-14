@@ -12,10 +12,8 @@ export default function Home() {
   const [loading, setLoading] = useState(true); // ローディング状態
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      router.push("/login");
-    } else {
+    // const token = localStorage.getItem('token');
+   
       // Tokenがある場合にhanabiデータを取得
       const fetchData = async () => {
         try {
@@ -28,8 +26,26 @@ export default function Home() {
         }
       };
       fetchData();
-    }
-  }, [router]);
+    }, [router]);
+
+
+  //   if (!token) {
+  //     router.push("/login");
+  //   } else {
+  //     // Tokenがある場合にhanabiデータを取得
+  //     const fetchData = async () => {
+  //       try {
+  //         const data = await getAllHanabi("2024-09-13");
+  //         setHanabis(data);
+  //       } catch (error) {
+  //         console.error("Failed to fetch hanabis", error);
+  //       } finally {
+  //         setLoading(false); // データの取得が終わったらローディングを終了
+  //       }
+  //     };
+  //     fetchData();
+  //   }
+  // }, [router]);
 
   if (loading) {
     return <div>Loading...</div>; // ローディング中の表示
