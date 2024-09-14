@@ -1,0 +1,53 @@
+{"likes":[
+    {
+      "UserId": 2,
+      "User": {
+        "Username": "john_doe",
+        "Email": "johndoe@example.com",
+        "Password": "password456",
+        "IconPhoto": "/images/icon2.jpg",
+        "Hanabis": [],
+        "Comments": [],
+        "Likes": []
+      },
+      "CommentID": 1,
+      "Comments": [
+        {
+          "Content": "Beautiful fireworks!",
+          "UserID": 2,
+          "User": null,
+          "HanabiID": 1,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        }
+      ]
+    },
+    {
+      "UserId": 3,
+      "User": {
+        "Username": "jane_smith",
+        "Email": "janesmith@example.com",
+        "Password": "password789",
+        "IconPhoto": "/images/icon3.jpg",
+        "Hanabis": [],
+        "Comments": [],
+        "Likes": []
+      },
+      "CommentID": 2,
+      "Comments": [
+        {
+          "Content": "Really inspiring!",
+          "UserID": 3,
+          "User": null,
+          "HanabiID": 4,
+          "Hanabi": null,
+          "Likes": [],
+          "LikeCount": 0,
+          "HasLiked": false
+        }
+      ]
+    }
+  ]
+} 

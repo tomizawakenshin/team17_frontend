@@ -1,0 +1,93 @@
+.firework-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* 高さを自動にして、内容に合わせて伸縮する */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* 縦に並べる */
+  overflow: auto; /* コンテンツをスクロール可能に */
+  padding-bottom: 200px; /* 余裕を持たせてスクロールを確保 */
+}
+
+.center-dot {
+  width: 20px;  
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(12%, 80%);
+  filter: brightness(2.5) !important;
+}
+
+.dot1, .dot2, .dot3 {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  font-size: var(--size);
+  transform-origin: center bottom;
+  /* 共通スタイル */
+}
+
+.dot1 {
+  --size: 25px;
+  --rotate: calc(var(--n) * 360deg / 6);
+  transform: rotate(var(--rotate)) translate(60px) rotate(-90deg) scaleX(0.5) scaleY(1.5);
+  filter: brightness(2.5) !important;
+}
+
+.dot2 {
+  --size: 25px;
+  --rotate: calc(var(--n) * 360deg / 12);
+  transform: rotate(var(--rotate)) translate(100px) rotate(-90deg) scaleX(0.5) scaleY(1.5);
+  filter: brightness(1.7) !important;
+}
+
+.dot3 {
+  --size: 25px;
+  --rotate: calc(var(--n) * 360deg / 24);
+  transform: rotate(var(--rotate)) translate(150px) rotate(-90deg) scaleX(0.5) scaleY(1.5);
+  filter: brightness(1) !important;
+}
+
+/* 星空の背景のスタイル */
+.stars {
+  position: fixed; /* 常に画面全体に固定 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 星空の横幅 */
+  height: 100vh; /* 画面全体をカバーする */
+  background-image: linear-gradient(0deg, #0c182f, black); /* 星空の背景色 */
+  overflow: hidden; /* 星が枠外にはみ出すのを防ぐ */
+  z-index: 0; /* コンテンツの後ろに表示 */
+}
+
+/* 星のスタイル */
+.star {
+  position: fixed;
+  display: block;
+  background-color: #fff; /* 星の色 */
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.2); /* 星の影 */
+  opacity: 0;
+  animation: twinkle 5s infinite;
+}
+
+/* 星がキラキラ光るアニメーション */
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
