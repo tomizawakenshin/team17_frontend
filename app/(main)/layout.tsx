@@ -1,6 +1,8 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
+
 import TabMenu from "@/components/TabMenu/TabMenu";
+
 
 const MainLayout = ({ children }: Readonly<{ children: React.ReactNode; }>) => {
   return (

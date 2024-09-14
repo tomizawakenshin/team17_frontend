@@ -1,4 +1,5 @@
-import React from "react";
+'use client';
+import React, { useEffect, useRef } from "react";
 import "./Firework.css";
 import { GiWaterDrop } from "react-icons/gi";
 import { Hanabi } from "@/models/hanabi";
@@ -8,7 +9,7 @@ interface FireworkProps {
   hanabis: Hanabi[];
 }
 
-const getColor = (category: string) => {
+const getColor = (category: string): string => {
   switch (category) {
     case "music":
       return "red";
@@ -28,20 +29,53 @@ const getColor = (category: string) => {
 };
 
 const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const stars = document.querySelector(".stars") as HTMLElement | null;
+
+    const createStar = (): void => {
+      if (!stars) return;
+
+      const starEl = document.createElement("span");
+      starEl.className = "star";
+      const minSize = 1;
+      const maxSize = 2;
+      const size = Math.random() * (maxSize - minSize) + minSize;
+      starEl.style.width = `${size}px`;
+      starEl.style.height = `${size}px`;
+      starEl.style.left = `${Math.random() * 100}%`;
+      starEl.style.top = `${Math.random() * 100}%`;
+      starEl.style.animationDelay = `${Math.random() * 10}s`;
+      stars.appendChild(starEl);
+    };
+
+    // 星の親要素の高さをスクロール領域に合わせて設定
+    if (containerRef.current) {
+      if (stars) {
+        stars.style.height = `${containerRef.current.scrollHeight}px`; // スクロール全体に対応
+      }
+    }
+
+    // 星を100個生成
+    for (let i = 0; i <= 100; i++) {
+      createStar();
+    }
+  }, []);
   return (
-    <div className="firework-container">
+    <div className="firework-container stars" ref={containerRef} style={{ overflowY: "scroll", maxHeight: "100vh", position: "relative" }}>
       {hanabis.map((item, itemIndex) => (
         <div
-          key={item.Name}
+          key={item.ID}
           className="firework-item"
-          style={{ position: "relative", marginBottom: "4rem" }}
+          style={{ marginBottom: "4rem", position: "relative" }}
         >
           <div
             style={{
-              position: "absolute",
               top: `${itemIndex * 300}px`,
               left: "0",
               zIndex: 1,
+              position: "relative",
             }}
           >
             <div
@@ -95,7 +129,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
             {item.CommentCount >= 1 && (
               <div
                 style={{
-                  position: "absolute",
+                  position: "relative",
                   top: `${itemIndex * 300}px`,
                   left: "0",
                   zIndex: 1,
@@ -125,7 +159,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
             {item.CommentCount >= 2 && (
               <div
                 style={{
-                  position: "absolute",
+                  position: "relative",
                   top: `${itemIndex * 300}px`,
                   left: "0",
                   zIndex: 2,
@@ -151,7 +185,7 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
               // {item.CommentCount >= 13 && (
               <div
                 style={{
-                  position: "absolute",
+                  position: "relative",
                   top: `${itemIndex * 300}px`,
                   left: "0",
                   zIndex: 3,

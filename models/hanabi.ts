@@ -9,5 +9,5 @@ export interface Hanabi {
   User: User;
   Tag: string;
   CommentCount: number;
-  Comment: Comment[];
+  Comments: Comment[];
 }

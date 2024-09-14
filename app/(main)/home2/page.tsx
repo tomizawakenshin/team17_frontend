@@ -18,8 +18,10 @@ const Home2 = () => {
     // } else {
       const fetchData = async () => {
         try {
-          // const result = await getAllHanabi("2024-09-13");
-          // setData(result);
+
+          const result = await getAllHanabi("2024-09-14");
+          setData(result);
+
         } catch (error) {
           setError('データの取得に失敗しました');
           console.error('Error fetching data:', error);

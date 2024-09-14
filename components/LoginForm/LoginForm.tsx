@@ -33,7 +33,7 @@ const LoginForm = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:8080/auth/login', {
+            const response = await fetch('https://hanabibackenddeploy-production.up.railway.app/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -57,6 +57,11 @@ const LoginForm = () => {
             console.error('ログインエラー:', error);
             setErrorMessage('ログインに失敗しました。もう一度お試しください。');
         }
+    };
+
+    // SignUpボタンのクリックで呼ばれる関数
+    const handleSignUp = () => {
+        router.push('/signin');  // サインアップページにリダイレクト
     };
 
     return (
@@ -105,7 +110,9 @@ const LoginForm = () => {
                 <div className="flex-grow border-t border-gray-400"></div>
             </div>
 
-            <button className='mt-6 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'>
+            <button
+                onClick={handleSignUp}
+                className='mt-6 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'>
                 SignUp
             </button>
         </div>
