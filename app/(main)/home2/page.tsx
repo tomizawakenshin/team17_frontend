@@ -3,12 +3,13 @@
 import { getAllHanabi } from '@/actions/hanabi';
 import AllHanabi from '@/components/AllHanabi/AllHanabi';
 import TabMenu from '@/components/TabMenu/TabMenu'; // TabMenuをインポート
+import { Hanabi } from '@/models/hanabi';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const Home2 = () => {
   const router = useRouter();
-  const [hanabis, setData] = useState<any>(null);
+  const [hanabis, setData] = useState<Hanabi[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string>("2024-09-14"); // 選択された日付を管理
@@ -49,7 +50,7 @@ const Home2 = () => {
   return (
     <div>
       <TabMenu onDateChange={handleDateChange} /> {/* TabMenuを表示し、日付変更ハンドラを渡す */}
-      <AllHanabi hanabis={hanabis} />
+      <AllHanabi hanabis={hanabis || []} />
     </div>
   );
 };

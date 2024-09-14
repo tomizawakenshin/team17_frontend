@@ -27,10 +27,7 @@ const getColor = (category: string) => {
 
 const NewFireworkForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
-  const [fileName, setFileName] = useState<string>("");
   const [imageData, setImageData] = useState<string>("");
-  const [selectedTag, setSelectedTag] = useState<string>('music');
-  const [errorMessage, setErrorMessage] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const router = useRouter(); // useRouterフックの初期化
 
@@ -47,7 +44,6 @@ const NewFireworkForm = () => {
     const files = event.target.files;
     if (files && files.length > 0) {
       const file = files[0];
-      setFileName(file.name);
       const reader = new FileReader();
       reader.onload = (e) => setImageData(e.target?.result as string);
       reader.readAsDataURL(file);
@@ -55,7 +51,6 @@ const NewFireworkForm = () => {
   };
 
   const clearFile = () => {
-    setFileName("");
     setImageData("");
     reset({ file: undefined });
   };
@@ -63,7 +58,6 @@ const NewFireworkForm = () => {
   const onSubmit = async (data: IFormInput) => {
     const token = localStorage.getItem("token"); // localStorageからJWTトークンを取得
     if (!token) {
-      setErrorMessage("認証トークンがありません。ログインしてください。");
       return;
     }
 
@@ -71,7 +65,7 @@ const NewFireworkForm = () => {
     formData.append("name", data.title);
     formData.append("description", data.description);
     formData.append("file", data.file[0]); // 画像ファイルを追加
-    formData.append("tag", selectedTag);
+    formData.append("tag", selectedCategory);
 
     try {
       const response = await fetch("https://hanabibackenddeploy-production.up.railway.app/hanabi/create", {
@@ -92,7 +86,6 @@ const NewFireworkForm = () => {
       clearFile(); // ファイルのクリア
 
     } catch (error) {
-      setErrorMessage("花火の作成に失敗しました。");
       console.error(error);
     }
   };
