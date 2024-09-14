@@ -44,9 +44,9 @@ const SignInFrom = () => {
     };
 
     return (
-        <div className="mt-10 mx-auto w-full max-w-sm">
+        <div className="mt-10 mx-auto w-full max-w-sm p-4">
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className='mt-10'>
                     <label htmlFor="name" className="block text-sm font-medium">
                         Name
                     </label>
@@ -60,7 +60,7 @@ const SignInFrom = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="email" className='block text-sm font-medium'>
+                    <label htmlFor="email" className='mt-6 block text-sm font-medium'>
                         Email
                     </label>
                     <input
@@ -73,7 +73,7 @@ const SignInFrom = () => {
                     />
                 </div>
                 <div className="mt-6">
-                    <label htmlFor="password" className="block text-sm font-medium">
+                    <label htmlFor="password" className="mt-6 block text-sm font-medium">
                         Password
                     </label>
                     <input
@@ -87,7 +87,7 @@ const SignInFrom = () => {
                 </div>
                 <button
                     type="submit"
-                    className='mt-8 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'
+                    className='mt-14 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'
                 >
                     Sign up
                 </button>

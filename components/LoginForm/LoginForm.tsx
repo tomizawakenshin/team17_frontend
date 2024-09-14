@@ -65,8 +65,8 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="mt-10 mx-auto w-full max-w-sm">
-            <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="mt-20 mx-auto w-full max-w-sm p-2">
+            <form onSubmit={handleSubmit} className="space-y-6 p-2">
                 <div>
                     <label htmlFor="email" className='block text-sm font-medium'>
                         Email
@@ -91,20 +91,20 @@ const LoginForm = () => {
                         onChange={handleChange}
                         required
                         minLength={8}
-                        className='block mt-2 py-1.5 px-2 w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 text-black'
+                        className='block mt-2 mb-8 py-1.5 px-2 w-full rounded-md border-0 shadow-sm ring-1 ring-inset ring-gray-300 text-black'
                     />
                 </div>
                 {errorMessage && <p className="mt-2 text-red-600">{errorMessage}</p>}
                 {successMessage && <p className="mt-2 text-green-600">{successMessage}</p>}
                 <button
                     type="submit"
-                    className='mt-8 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'
+                    className='mt-10 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'
                 >
                     Log In
                 </button>
             </form>
 
-            <div className="relative mt-8 flex items-center">
+            <div className="relative mt-8 flex items-center px-2">
                 <div className="flex-grow border-t border-gray-400"></div>
                 <span className="mx-4 text-gray-500">or</span>
                 <div className="flex-grow border-t border-gray-400"></div>
@@ -112,7 +112,7 @@ const LoginForm = () => {
 
             <button
                 onClick={handleSignUp}
-                className='mt-6 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm'>
+                className='mt-10 py-2 w-full rounded-md text-white bg-gray-800 hover:bg-gray-700 font-semibold shadow-sm p-4'>
                 SignUp
             </button>
         </div>
