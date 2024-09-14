@@ -213,7 +213,7 @@ const EventPage = () => {
           <h1 className="text-xl font-bold">{eventData.Name}</h1>
           <div
             className={classNames(
-              'mt-1 text-center text-white rounded-full shadow-sm',
+              'mt-3 text-center text-white rounded-full shadow-sm',
               {
                 'bg-red-500': eventData.Tag === 'music',
                 'bg-blue-500': eventData.Tag === 'movie',
@@ -227,13 +227,13 @@ const EventPage = () => {
           >
             {eventData.Tag}
           </div>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }} className="mt-3" >
             <BsFire className="text-white mx-5" />
             <p>{eventData.CommentCount}</p>
           </div>
         </div>
       </div>
-      <p className="mx-10">説明:</p>
+      <p className="mx-10 text-sm text-gray-300">説明:</p>
       <p className="mx-10">{eventData.Description}</p>
       <div className="mb-14 my-10">
         {eventData.Comments && eventData.Comments.map((comment, index) => (
