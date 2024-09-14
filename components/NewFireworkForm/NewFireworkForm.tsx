@@ -82,6 +82,10 @@ const NewFireworkForm = () => {
 
       const result = await response.json();
       console.log("花火の作成成功:", result);
+
+      console.log("hello")
+
+      router.push("/home1")
       reset(); // フォームのリセット
       clearFile(); // ファイルのクリア
 
@@ -144,12 +148,13 @@ const NewFireworkForm = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center mt-16">
-        <button type="submit" className="w-80 bg-yellow-200 hover:bg-yellow-100 text-gray-800 font-bold py-2 px-4 rounded">
-          花火を打ち上げる
-        </button>
-      </div>
-    </div>
+      <form onSubmit={handleSubmit(onSubmit)} className="max-w-md w-full"> {/* handleSubmitを使用 */}
+        <div className="flex justify-center items-center mt-16">
+          <button type="submit" className="w-80 bg-yellow-200 hover:bg-yellow-100 text-gray-800 font-bold py-2 px-4 rounded">
+            花火を打ち上げる
+          </button>
+        </div>
+      </form>    </div>
   );
 };
 
