@@ -79,8 +79,6 @@ const NewFireworkForm = () => {
         throw new Error("花火の作成に失敗しました。");
       }
 
-      const result = await response.json();
-
       router.push("/home1")
       reset(); // フォームのリセット
       clearFile(); // ファイルのクリア
