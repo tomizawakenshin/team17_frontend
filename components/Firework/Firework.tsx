@@ -78,52 +78,54 @@ const Firework: React.FC<FireworkProps> = ({ hanabis }) => {
               position: "relative",
             }}
           >
-            <div
-              className="center-dot"
-              style={{ opacity: 0.2, backgroundColor: getColor(item.Tag) }}
-            ></div>
-            {Array.from({ length: 6 }).map((_, index) => (
-              <GiWaterDrop
-                key={`base-dot1-${item.Name}-${index}`}
-                className="dot1"
-                style={
-                  {
-                    "--n": index,
-                    position: "absolute",
-                    color: getColor(item.Tag),
-                    opacity: 0.2,
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-            {Array.from({ length: 12 }).map((_, index) => (
-              <GiWaterDrop
-                key={`base-dot2-${item.Name}-${index}`}
-                className="dot2"
-                style={
-                  {
-                    "--n": index,
-                    position: "absolute",
-                    color: getColor(item.Tag),
-                    opacity: 0.2,
-                  } as React.CSSProperties
-                }
-              />
-            ))}
-            {Array.from({ length: 24 }).map((_, index) => (
-              <GiWaterDrop
-                key={`base-dot3-${item.Name}-${index}`}
-                className="dot3"
-                style={
-                  {
-                    "--n": index,
-                    position: "absolute",
-                    color: getColor(item.Tag),
-                    opacity: 0.2,
-                  } as React.CSSProperties
-                }
-              />
-            ))}
+            <Link href={`/comment/${encodeURIComponent(item.ID)}`}>
+              <div
+                className="center-dot"
+                style={{ opacity: 0.2, backgroundColor: getColor(item.Tag) }}
+              ></div>
+              {Array.from({ length: 6 }).map((_, index) => (
+                <GiWaterDrop
+                  key={`base-dot1-${item.Name}-${index}`}
+                  className="dot1"
+                  style={
+                    {
+                      "--n": index,
+                      position: "absolute",
+                      color: getColor(item.Tag),
+                      opacity: 0.2,
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+              {Array.from({ length: 12 }).map((_, index) => (
+                <GiWaterDrop
+                  key={`base-dot2-${item.Name}-${index}`}
+                  className="dot2"
+                  style={
+                    {
+                      "--n": index,
+                      position: "absolute",
+                      color: getColor(item.Tag),
+                      opacity: 0.2,
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+              {Array.from({ length: 24 }).map((_, index) => (
+                <GiWaterDrop
+                  key={`base-dot3-${item.Name}-${index}`}
+                  className="dot3"
+                  style={
+                    {
+                      "--n": index,
+                      position: "absolute",
+                      color: getColor(item.Tag),
+                      opacity: 0.2,
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+            </Link>
           </div>
           <Link href={`/comment/${encodeURIComponent(item.ID)}`}>
             {item.CommentCount >= 1 && (
