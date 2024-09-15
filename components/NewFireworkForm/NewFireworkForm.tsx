@@ -28,7 +28,7 @@ const getColor = (category: string) => {
 const NewFireworkForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormInput>();
   const [imageData, setImageData] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("music");
   const router = useRouter(); // useRouterフックの初期化
 
   useEffect(() => {
@@ -80,9 +80,6 @@ const NewFireworkForm = () => {
       }
 
       const result = await response.json();
-      console.log("花火の作成成功:", result);
-
-      console.log("hello")
 
       router.push("/home1")
       reset(); // フォームのリセット
